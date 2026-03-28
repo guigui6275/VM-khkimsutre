@@ -1,4 +1,6 @@
 import { getArtiste, getAlbums, getConcerts, getRevues } from '@/lib/api';
+import FacebookWidget from '@/components/FacebookWidget';
+import FacebookLikeButton from '@/components/FacebookLikeButton';
 
 const SLUG = process.env.NEXT_PUBLIC_ARTISTE_SLUG;
 
@@ -283,6 +285,31 @@ export default async function HomePage() {
           whiteSpace: 'nowrap',
         }}>Lire la biographie</a>
       </div>
-    </div>
+    <div style={{
+  padding: '32px 40px',
+  borderBottom: '0.5px solid var(--color-bordure)',
+}}>
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: '20px',
+  }}>
+    <p style={{
+      fontSize: '10px',
+      letterSpacing: '0.2em',
+      textTransform: 'uppercase',
+      color: 'var(--color-accent)',
+      fontWeight: '300',
+    }}>Suivez-moi</p>
+    <FacebookLikeButton pageUrl="https://www.facebook.com/GuillaumeSutreViolin/" />
+  </div>
+  <FacebookWidget
+    pageUrl="https://www.facebook.com/KyungheeKimSutreHarp/"
+    tabs="timeline"
+    height={400}
+  />
+</div>
+</div>
   );
 }
