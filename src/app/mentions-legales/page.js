@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Mentions légales — Sonarti Records',
+  title: 'Mentions légales — Kyung-Hee Kim-Sutre',
 };
 
 export default function MentionsLegalesPage() {
@@ -13,10 +13,10 @@ export default function MentionsLegalesPage() {
           fontSize: '10px',
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          color: 'var(--color-bordeaux)',
+          color: 'var(--color-or)',
           marginBottom: '10px',
           fontWeight: '300',
-        }}>Sonarti Records</p>
+        }}>Kyung-Hee Kim-Sutre</p>
         <h1 style={{
           fontFamily: 'var(--font-playfair)',
           fontSize: '32px',
@@ -46,7 +46,7 @@ export default function MentionsLegalesPage() {
             {
               titre: 'Directeur de la publication',
               contenu: [
-                'Guillaume Sutre',
+                'Kyung-Hee Kim-Sutre',
               ],
             },
             {
@@ -94,7 +94,7 @@ export default function MentionsLegalesPage() {
                 fontSize: '10px',
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                color: 'var(--color-bordeaux)',
+                color: 'var(--color-accent)',
                 marginBottom: '12px',
                 fontWeight: '300',
               }}>{titre}</p>
@@ -134,9 +134,9 @@ export default function MentionsLegalesPage() {
             }}>Les Productions Sonarti<br />Organisme à but non lucratif</p>
             <a href="mailto:contact@sonarti.com" style={{
               fontSize: '13px',
-              color: 'var(--color-bordeaux)',
+              color: 'var(--color-or)',
               fontWeight: '300',
-              borderBottom: '0.5px solid var(--color-bordeaux)',
+              borderBottom: '0.5px solid var(--color-or)',
             }}>contact@sonarti.com</a>
           </div>
 
@@ -158,7 +158,7 @@ export default function MentionsLegalesPage() {
               lineHeight: '1.6',
               fontWeight: '300',
             }}>
-              Pour toute question relative à la protection de vos données personnelles, 
+              Pour toute question relative à la protection de vos données personnelles,
               contactez-nous directement.
             </p>
           </div>

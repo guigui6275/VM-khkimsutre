@@ -3,12 +3,12 @@ import { getConcerts } from '@/lib/api';
 const SLUG = process.env.NEXT_PUBLIC_ARTISTE_SLUG;
 
 export const metadata = {
-  title: 'Concerts — Guillaume Sutre',
+  title: 'Concerts — Kyung-Hee Kim-Sutre',
 };
 
 function ConcertRow({ concert, isPast }) {
   return (
-    <div style={{
+    <div className="concert-row" style={{
       display: 'grid',
       gridTemplateColumns: '90px 1fr auto',
       gap: '24px',
@@ -51,7 +51,7 @@ function ConcertRow({ concert, isPast }) {
         </p>
       </div>
 
-      <div>
+      <div className="concert-info">
         <h3 style={{
           fontFamily: 'var(--font-playfair)',
           fontSize: '18px',
@@ -80,9 +80,27 @@ function ConcertRow({ concert, isPast }) {
               : concert.programme?.[0]?.children?.[0]?.text || ''}
           </p>
         )}
+
+        {/* Billetterie mobile */}
+        {!isPast && concert.lien_billetterie && (
+          <a href={concert.lien_billetterie}
+            className="concert-billetterie-mobile"
+            style={{
+              display: 'none',
+              marginTop: '12px',
+              fontSize: '11px',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              padding: '8px 16px',
+              background: 'var(--color-noir)',
+              color: '#F8F4EF',
+              fontWeight: '300',
+              whiteSpace: 'nowrap',
+            }}>Billetterie</a>
+        )}
       </div>
 
-      <div style={{ paddingTop: '4px' }}>
+      <div className="concert-billetterie-desktop" style={{ paddingTop: '4px' }}>
         {!isPast && concert.lien_billetterie ? (
           <a href={concert.lien_billetterie} style={{
             display: 'inline-block',
@@ -116,7 +134,7 @@ export default async function ConcertsPage() {
 
   return (
     <div>
-      <div style={{ padding: '40px 40px 0' }}>
+      <div className="calendrier-header" style={{ padding: '40px 40px 0' }}>
         <p style={{
           fontSize: '10px',
           letterSpacing: '0.22em',
@@ -124,7 +142,7 @@ export default async function ConcertsPage() {
           color: 'var(--color-or)',
           marginBottom: '10px',
           fontWeight: '300',
-        }}>Guillaume Sutre</p>
+        }}>Kyung-Hee Kim-Sutre</p>
         <h1 style={{
           fontFamily: 'var(--font-playfair)',
           fontSize: '32px',
@@ -133,7 +151,7 @@ export default async function ConcertsPage() {
         }}>Concerts</h1>
       </div>
 
-      <div style={{ padding: '0 40px' }}>
+      <div className="calendrier-liste" style={{ padding: '0 40px' }}>
         <p style={{
           fontSize: '10px',
           letterSpacing: '0.2em',
@@ -159,7 +177,7 @@ export default async function ConcertsPage() {
       </div>
 
       {passes.data.length > 0 && (
-        <div style={{
+        <div className="calendrier-liste" style={{
           borderTop: '0.5px solid var(--color-bordure)',
           padding: '0 40px',
           marginTop: '8px',

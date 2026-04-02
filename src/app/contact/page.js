@@ -37,7 +37,7 @@ export default function ContactPage() {
 
   return (
     <div>
-      <div style={{
+      <div className="contact-header" style={{
         padding: '40px 40px 32px',
         borderBottom: '0.5px solid var(--color-bordure)',
       }}>
@@ -62,8 +62,8 @@ export default function ContactPage() {
         }}>Pour toute demande de concert, interview ou information.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px' }}>
-        <form onSubmit={handleSubmit} style={{
+      <div className="contact-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 280px' }}>
+        <form onSubmit={handleSubmit} className="contact-form" style={{
           padding: '36px 36px 36px 40px',
           borderRight: '0.5px solid var(--color-bordure)',
         }}>
@@ -76,7 +76,7 @@ export default function ContactPage() {
             fontWeight: '300',
           }}>Nous écrire</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '18px' }}>
+          <div className="contact-nom-prenom" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '18px' }}>
             {[
               { label: 'Prénom', key: 'prenom' },
               { label: 'Nom', key: 'nom' },
@@ -209,21 +209,15 @@ export default function ContactPage() {
           </div>
 
           {status === 'success' && (
-            <p style={{
-              fontSize: '13px',
-              color: 'green',
-              marginBottom: '16px',
-              fontWeight: '300',
-            }}>Message envoyé avec succès. Nous vous répondrons bientôt.</p>
+            <p style={{ fontSize: '13px', color: 'green', marginBottom: '16px', fontWeight: '300' }}>
+              Message envoyé avec succès. Nous vous répondrons bientôt.
+            </p>
           )}
 
           {status === 'error' && (
-            <p style={{
-              fontSize: '13px',
-              color: 'red',
-              marginBottom: '16px',
-              fontWeight: '300',
-            }}>Une erreur s'est produite. Veuillez réessayer.</p>
+            <p style={{ fontSize: '13px', color: 'red', marginBottom: '16px', fontWeight: '300' }}>
+              Une erreur s'est produite. Veuillez réessayer.
+            </p>
           )}
 
           <button
@@ -246,7 +240,7 @@ export default function ContactPage() {
           </button>
         </form>
 
-        <div style={{ padding: '36px 28px' }}>
+        <div className="contact-sidebar" style={{ padding: '36px 28px' }}>
           <div style={{
             marginBottom: '24px',
             paddingBottom: '24px',
@@ -289,10 +283,7 @@ export default function ContactPage() {
             }}>Sonarti Records</a>
           </div>
 
-          <div style={{
-            background: 'var(--color-bg-alt)',
-            padding: '20px',
-          }}>
+          <div style={{ background: 'var(--color-bg-alt)', padding: '20px' }}>
             <p style={{
               fontSize: '10px',
               letterSpacing: '0.16em',
