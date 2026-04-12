@@ -19,7 +19,10 @@
   --color-surface:          #3D4538;   /* alias bg-alt */
 }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--color-bg);
@@ -40,7 +43,7 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; font-family: var(--font-sans); }
 
-@media (max-width: 830px) {
+@media (max-width: 920px) {
 
   /* ── Règles génériques (inline style selectors) ── */
 
@@ -211,19 +214,21 @@ button { cursor: pointer; font-family: var(--font-sans); }
   padding-right: 20px !important;
 }
 
+/* ConcertRow : date + info sur 2 colonnes, billetterie sous l'info */
 .concert-row {
   grid-template-columns: 70px 1fr !important;
   gap: 16px !important;
 }
 
+/* La colonne billetterie desktop disparaît */
 .concert-billetterie-desktop {
   display: none !important;
 }
 
+/* Le lien billetterie dans l'info devient visible */
 .concert-billetterie-mobile {
   display: inline-block !important;
 }
-
 /* ── Page Enseignement ── */
 
 .enseignement-header {
@@ -247,13 +252,13 @@ button { cursor: pointer; font-family: var(--font-sans); }
 .enseignement-academies {
   grid-template-columns: 1fr !important;
 }
-
 /* ── Page Blog (liste) ── */
 
 .blog-header {
   padding: 28px 20px 24px !important;
 }
 
+/* Grille texte + image → 1 colonne, image passe en dessous */
 .blog-article-row {
   grid-template-columns: 1fr !important;
 }
@@ -262,14 +267,15 @@ button { cursor: pointer; font-family: var(--font-sans); }
   padding: 24px 20px !important;
 }
 
+/* Image : hauteur fixe en dessous du texte, border-left → border-top */
 .blog-article-image {
   border-left: none !important;
   border-top: 0.5px solid var(--color-bordure) !important;
   height: 200px !important;
 }
-
 /* ── Page Blog (article) ── */
 
+/* Image couverture : hauteur réduite */
 .article-couverture img {
   height: 220px !important;
 }
@@ -278,6 +284,7 @@ button { cursor: pointer; font-family: var(--font-sans); }
   padding: 28px 20px 24px !important;
 }
 
+/* Layout texte + galerie → 1 colonne */
 .article-layout {
   grid-template-columns: 1fr !important;
 }
@@ -288,6 +295,7 @@ button { cursor: pointer; font-family: var(--font-sans); }
   border-bottom: 0.5px solid var(--color-bordure) !important;
 }
 
+/* Galerie : passe en dessous, photos en grille horizontale 2 colonnes */
 .article-galerie {
   padding: 20px !important;
   border-top: none !important;
@@ -299,19 +307,20 @@ button { cursor: pointer; font-family: var(--font-sans); }
   gap: 8px;
 }
 
+/* Footer : colonne sur mobile */
 .article-footer {
   padding: 20px !important;
   flex-direction: column !important;
   align-items: flex-start !important;
   gap: 12px !important;
 }
-
 /* ── Page Médias ── */
 
 .medias-header {
   padding: 28px 20px 24px !important;
 }
 
+/* Grille 2 colonnes → 1 colonne sur mobile */
 .medias-grid {
   grid-template-columns: 1fr !important;
 }
@@ -320,7 +329,6 @@ button { cursor: pointer; font-family: var(--font-sans); }
   padding: 20px !important;
   border-right: none !important;
 }
-
 /* ── Page Contact ── */
 
 .contact-header {
@@ -337,6 +345,7 @@ button { cursor: pointer; font-family: var(--font-sans); }
   border-bottom: 0.5px solid var(--color-bordure) !important;
 }
 
+/* Prénom + Nom → 1 colonne sur mobile */
 .contact-nom-prenom {
   grid-template-columns: 1fr !important;
 }
@@ -344,3 +353,23 @@ button { cursor: pointer; font-family: var(--font-sans); }
 .contact-sidebar {
   padding: 28px 20px !important;
 }
+:root {
+  /* ... variables existantes ... */
+  --color-ivoire: #F8F4EF;
+}
+/* ── Animations au scroll ── */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
