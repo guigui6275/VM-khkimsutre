@@ -117,7 +117,7 @@ export default async function AProposPage() {
                   fontWeight: '300',
                   marginBottom: '16px',
                   textAlign: 'justify',
-                }}>{paragraphe}</p>
+                }} dangerouslySetInnerHTML={{ __html: paragraphe }} />
               ))
             ) : (
               <p style={{
