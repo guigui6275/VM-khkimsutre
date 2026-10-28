@@ -3,7 +3,6 @@ import FacebookWidget from '@/components/FacebookWidget';
 import FacebookLikeButton from '@/components/FacebookLikeButton';
 
 const SLUG = process.env.NEXT_PUBLIC_ARTISTE_SLUG;
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 export default async function HomePage() {
   const [artiste, albums, concerts, revues] = await Promise.all([
@@ -161,7 +160,7 @@ export default async function HomePage() {
               <div style={{ width: '100%', marginBottom: '10px', overflow: 'hidden' }}>
                 {dernierAlbum.pochette ? (
                   <img
-                    src={`${STRAPI_URL}${dernierAlbum.pochette.url}`}
+                    src={`${dernierAlbum.pochette.url}`}
                     alt={dernierAlbum.titre}
                     style={{ width: '100%', height: 'auto', display: 'block' }}
                   />
@@ -184,7 +183,7 @@ export default async function HomePage() {
                       <span key={r.id} title={r.nom}>
                         {r.image ? (
                           <img
-                            src={`${STRAPI_URL}${r.image.url}`}
+                            src={`${r.image.url}`}
                             alt={r.nom}
                             style={{ width: '40px', height: '40px', objectFit: 'contain' }}
                           />

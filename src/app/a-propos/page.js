@@ -3,7 +3,6 @@ import { getGoogleDoc, GOOGLE_DOCS } from '@/lib/google-doc';
 import GaleriePresse from '@/components/GaleriePresse';
 
 const SLUG = process.env.NEXT_PUBLIC_ARTISTE_SLUG;
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 export const revalidate = 3600;
 
@@ -217,7 +216,7 @@ export default async function AProposPage() {
                 fontWeight: '300',
               }}>Presse & programmes</p>
 
-              <GaleriePresse documents={documents} strapiUrl={STRAPI_URL} />
+              <GaleriePresse documents={documents} />
             </div>
           )}
         </div>
