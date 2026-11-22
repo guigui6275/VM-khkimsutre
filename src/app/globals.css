@@ -22,6 +22,9 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  /* Gouttière de scrollbar toujours réservée : le menu fixe ne saute plus
+     entre une page courte et une page longue. */
+  scrollbar-gutter: stable;
 }
 
 body {
